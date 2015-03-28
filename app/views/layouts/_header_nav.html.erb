@@ -13,7 +13,6 @@
       </li>
       <% if current_user %>
         <li><%= link_to "Ask a question", new_question_path %></li>
-        <li><%= link_to 'Create new Question', new_question_path %></li>
         <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
       <% else %>
         <li><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></li>
