@@ -9,6 +9,6 @@ Rails.application.routes.draw do
     get 'auth/failure', to: redirect('/')
     get 'signout', to: 'sessions#destroy', as: 'signout'
 
-    root to: "home#show"
+    root "home#show"
 
 end
