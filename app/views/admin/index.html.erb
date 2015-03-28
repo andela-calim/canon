@@ -1,0 +1,17 @@
+<h5>Users</h2>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Roles</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.email %></td>
+    </tr>
+  <% end %>
+</table>
+
+<div id="modal-window" class="modal fade" role="dialog" aria-labelledby="myModalLabel"></div>
