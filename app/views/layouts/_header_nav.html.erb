@@ -1,0 +1,34 @@
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
+        <i class="fa fa-bars"></i>
+      </button>
+      <a class="navbar-brand page-scroll" href="#page-top">
+        <i class="fa fa-play-circle"></i> <span class="light">Canon</span>
+      </a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right navbar-main-collapse">
+
+      <ul class="nav navbar-nav">
+        <li>
+          <a class="page-scroll" href="#about">About</a>
+        </li>
+        <li>
+          <a class="page-scroll" href="#contact">Contact</a>
+        </li>
+
+        <div>
+          <% if current_user %>
+              Signed in as <strong><%= current_user.name %></strong>!
+              <%= link_to "Sign out", signout_path, id: "sign_out" %>
+          <% else %>
+              <%= link_to "Sign in with Google", "/auth/google_oauth2/callback", id: "sign_in" %>
+          <% end %>
+        </div>
+
+      </ul>
+    </div>
+  </div>
+</nav>
