@@ -25,7 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 #google authentication
 # gem 'devise'
-# gem 'omniauth'
+gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
 # Use ActiveModel has_secure_password
