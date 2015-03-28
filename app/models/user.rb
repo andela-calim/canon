@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
 
-  has_many :questions
-
   def self.from_omniauth(access_token, signed_in_resource=nil)
     data = access_token.info
     user = User.where(:provider => access_token.provider, :uid => access_token.uid ).first

@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :set_question, only: [:show, :edit, :update, :destroy]
-  # before_filter :authenticate_user!
+  before_action :authenticate_user
 
   def new
     @question = Question.new
@@ -13,13 +13,14 @@ class QuestionsController < ApplicationController
   def create
     if current_user
       @question = Question.new(question_params)
-      @user = @question.user.name
       # prevent logged out users from creating question
       if @question.save
         redirect_to @question
       else
         render 'new'
       end
+    else
+      redirect_to(root_path, notice: "Please Sign in with your andela email address")
     end
   end
 
@@ -64,6 +65,6 @@ class QuestionsController < ApplicationController
     @question = Question.find(params[:id])
   end
   def question_params
-    params.require(:question).permit(:title, :body, :user_id)
+    params.require(:question).permit(:title, :body)
   end
 end
