@@ -1,6 +1,6 @@
 <nav>
   <div class="nav-wrapper">
-    <%= link_to 'Canon', root_path, class: 'brand-logo' %>
+    <%= link_to 'Canon', questions_path, class: 'brand-logo' %>
 
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li>
@@ -16,7 +16,7 @@
         <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
       <% else %>
 
-        <li><%= link_to image_tag("sign-in-with-google.png"), "/auth/google_oauth2", id: "sign_in"%></li>
+        <li><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></li>
 
       <% end %>
     </ul>

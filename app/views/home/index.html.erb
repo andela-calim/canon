@@ -1,12 +1,13 @@
-
-
-
- <div class="logIn">
+<div class="col s8 mgn">
+  <div class="col s12">
     <div class="logo"></div>
-      <h1>Sign in to Canon</h1>
-      <h1>And</h1>
-      <h2>Get answers to your questions</h2>
-      <%= link_to image_tag("sign-in-with-google.png"), "/auth/google_oauth2", style: "max-width: 200px; margin-left: 215px" %>
-      <!-- <a href="#"><img class="img" src="sign-in-with-google.png" style="max-width: 200px; margin-left: 215px"></a> -->
   </div>
+  <div class="col s12 login">
+    <h4>Sign in to Canon</h4>
+    <h4>And</h4>
+    <h4>Get answers to your questions</h4>
+
+    <%= link_to image_tag("sign-in-with-google.png", class: "responsive-img login-logo"), "/auth/google_oauth2", id: "sign_in" %>
+  </div>
+</div>
 

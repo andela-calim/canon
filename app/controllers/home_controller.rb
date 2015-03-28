@@ -1,7 +1,8 @@
 class HomeController < ApplicationController
-  def index
 
-  end
-  def login
+  def index
+    if signed_in?
+      redirect_to questions_path
+    end
   end
 end
