@@ -1,6 +1,6 @@
 <nav>
   <div class="nav-wrapper">
-    <a href="/" class="brand-logo">Canon</a>
+    <%= link_to 'Canon', root_path, class: 'brand-logo' %>
 
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li>
@@ -13,6 +13,7 @@
       </li>
       <% if current_user %>
         <li><%= link_to "Ask a question", new_question_path %></li>
+        <li><%= link_to 'Create new Question', new_question_path %></li>
         <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
       <% else %>
         <li><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></li>
