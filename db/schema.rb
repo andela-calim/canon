@@ -27,4 +27,8 @@ ActiveRecord::Schema.define(version: 20150328122949) do
     t.datetime "oauth_expires_at"
   end
 
+  create_table "questions", force: :cascade do |t|
+    t.text "title"
+    t.text "body"
+  end
 end

@@ -51,5 +51,11 @@ group :development, :test do
 
   # Rspec for testing
   gem 'rspec-rails', '~> 3.0'
+
+  # Capybara testing
+  gem 'capybara'
+
+  # Factory
+  gem 'factory_girl_rails'
 end
 
