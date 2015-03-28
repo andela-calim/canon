@@ -1,7 +1,16 @@
 <nav>
   <div class="nav-wrapper">
     <a href="#" class="brand-logo">Canon</a>
+
     <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li>
+        <form>
+          <div class="input-field">
+            <input id="search" type="text" required>
+            <label for="search"><i class="mdi-action-search"></i></label>
+          </div>
+        </form>
+      </li>
       <% if current_user %>
         <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
       <% else %>
