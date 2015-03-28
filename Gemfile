@@ -24,7 +24,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 
 #google authentication
-# gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
