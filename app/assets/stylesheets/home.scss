@@ -22,8 +22,10 @@
   color: #1779dd;
 }
 #profile-description .show-more-height { height: 62px; overflow:hidden; }
+
 .card p {
   text-align: justify;
+  line-height: 200%;
 }
 .logIn {
 width: 650px;
@@ -75,3 +77,28 @@ img {
   margin-left: 225;
 }
 
+
+.card .card-title {
+  font-weight: 500;
+}
+
+.card a:hover {
+  text-decoration: underline;
+}
+
+.flash {
+  position: absolute;
+  left: 30%;
+  top: 40px;
+  -moz-opacity: 0.8;          /* Netscape */
+  -khtml-opacity: 0.8;        /* Safari 1.x */
+  opacity: 0.8;
+  z-index: 9999;
+  text-align: center;
+  border-radius: 15px;
+
+  width: 400px;
+  height: 50px;
+  padding: 10px;
+  font-size: 120%;
+}
