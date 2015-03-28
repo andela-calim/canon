@@ -35,5 +35,4 @@ ActiveRecord::Schema.define(version: 20150328173252) do
     t.datetime "oauth_expires_at"
   end
 
-  add_foreign_key "questions", "users"
 end
