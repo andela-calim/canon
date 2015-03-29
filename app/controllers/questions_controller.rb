@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :set_question, only: [:show, :edit, :update, :destroy]
+  before_action :set_question, only: [:show, :edit, :update, :destroy, :down_vote, :up_vote]
   before_action :authenticate_user
 
   def new
@@ -58,6 +58,19 @@ class QuestionsController < ApplicationController
     end
 
     redirect_to questions_path
+  end
+
+  def up_vote
+    @vote = current_user.votes.new(question: @question)
+    @question.update_attributes(popularity: @question.popularity + 1) if @vote.save
+  end
+
+  def down_vote
+
+  end
+
+  def search
+
   end
 
   private
