@@ -1,11 +1,19 @@
-<p>
-  <strong>Title:</strong>
-  <%= @question.title %>
-</p>
-
-<p>
-  <strong>Text:</strong>
-  <%= @question.body %>
-</p>
-
-<%= link_to 'Back', questions_path %>
+<div class="row marginup">
+  <div class="card">
+    <div class="card-content black-text">
+      <p class="card-title black-text">
+        <%= @question.title  %>
+      </p>
+      <p><%= @question.body %></p>
+      <a class="waves-effect btn red lighten-5">Upvote | 4</a>
+    </div>
+  </div>
+</div>
+<%= render 'comments/form' %>
+<div class="panel panel-default" id="comments">
+  <div class="panel-body">
+    <ul class="media-list">
+      <%= render @comments %>
+    </ul>
+  </div>
+</div>

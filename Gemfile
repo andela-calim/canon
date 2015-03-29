@@ -64,5 +64,8 @@ group :development, :test do
   gem 'factory_girl_rails'
   #set environmental variables
   gem 'dotenv-rails'
+
+  gem 'pry-nav', '0.2.0'
+  gem 'pry-rails', '0.1.6'
 end
 

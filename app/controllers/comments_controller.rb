@@ -2,11 +2,6 @@ class CommentsController < ApplicationController
   before_action :authenticate_user
   include ActionController::Live
 
-  # def index
-  #   response.headers['Content-Type'] = 'text/event-stream'
-  #   @comments = Comment.where('id > ?', params[:after_id].to_i).order('created_at DESC')
-  # end
-
   def index
     response.headers['Content-Type'] = 'text/event-stream'
     sse = SSE.new(response.stream)
@@ -27,10 +22,6 @@ class CommentsController < ApplicationController
     render nothing: true
   end
 
-  # Comment.on_change do |data|
-  #   sse.write(data)
-  # end
-
   def new
     @comment = Comment.new
     @comments = Comment.order('created_at DESC')
@@ -45,6 +36,6 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:body)
+    params.require(:comment).permit(:body, :question_id, :user_id)
   end
 end

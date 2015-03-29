@@ -7,7 +7,9 @@ class QuestionsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new
     @question = Question.find(params[:id])
+    @comments = @question.comments.order('created_at DESC')
   end
 
   def create

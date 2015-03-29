@@ -8,10 +8,12 @@ Rails.application.routes.draw do
   # get 'questions/new', to: 'questions#new', as: :question_new
 
   resources :questions
+
+  resources :comments, only: [:new, :create, :index]
+
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
   resources :admin, only: :index
-  resources :comments, only: [:new, :create, :index]
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
