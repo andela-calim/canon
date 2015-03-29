@@ -32,8 +32,8 @@ gem 'bootstrap-sass'
 
 gem 'cancancan', '~> 1.10'
 gem 'jquery-turbolinks'
-gem 'faye-rails', '~> 2.0'
-gem 'thin'
+gem 'puma'
+gem 'underscore-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

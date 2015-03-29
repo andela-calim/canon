@@ -1,9 +1,35 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user
+  include ActionController::Live
+
+  # def index
+  #   response.headers['Content-Type'] = 'text/event-stream'
+  #   @comments = Comment.where('id > ?', params[:after_id].to_i).order('created_at DESC')
+  # end
 
   def index
-    @comments = Comment.where('id > ?', params[:after_id].to_i).order('created_at DESC')
+    response.headers['Content-Type'] = 'text/event-stream'
+    sse = SSE.new(response.stream)
+    begin
+      Comment.on_change do |id|
+        comment = Comment.find(id)
+        t = render_to_string(partial: 'comment', formats: [:html], locals: {comment: comment})
+        sse.write(t)
+      end
+        #   Comment.on_change do |comment|
+        #   sse.write(comment)
+        #   end
+    rescue IOError
+      # Client Disconnected
+    ensure
+      sse.close
+    end
+    render nothing: true
   end
+
+  # Comment.on_change do |data|
+  #   sse.write(data)
+  # end
 
   def new
     @comment = Comment.new
@@ -11,20 +37,9 @@ class CommentsController < ApplicationController
   end
 
   def create
-    respond_to do |format|
-      if current_user
-        @comment = current_user.comments.build(comment_params)
-        if @comment.save
-          flash.now[:success] = 'Your comment was successfully posted!'
-        else
-          flash.now[:error] = 'Your comment cannot be saved.'
-        end
-        format.html {redirect_to root_url}
-        format.js
-      else
-        format.html {redirect_to root_url}
-        format.js {render nothing: true}
-      end
+    if current_user
+      @comment = current_user.comments.build(comment_params)
+      @comment.save
     end
   end
   private

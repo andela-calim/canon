@@ -16,9 +16,8 @@
 //= require turbolinks
 //= require jquery
 //= require materialize-sprockets
-//= require polling
-//= require faye
 //= require comments
+//= require underscore
 //= require_tree .
 $(document).ready(function() {
     $(".show-more").click(function () {

@@ -1,8 +1,9 @@
 <li class="media comment">
+  <%= link_to image_tag(comment.user.name, alt: comment.user.name, class: "media-object"),
+              comment.user.name, target: '_blank', class: 'pull-left' %>
   <div class="media-body">
-    <h4 class="media-heading"><%= link_to current_user.name, root_path, target: '_blank' %> says
-      <small class="text-muted">[at <%= comment.created_at.strftime('%-d %B %Y, %H:%M:%S') %>]</small></h4>
+    <h4 class="media-heading"><%= link_to comment.user.name, comment.user.name, target: '_blank' %> says
+      <small class="text-muted">[at <%= comment.timestamp %>]</small></h4>
     <p><%= comment.body %></p>
   </div>
 </li>
-<li class="media comment" data-id="<%= comment.id %>">
