@@ -1,13 +1,13 @@
 <div class="row marginup">
   <div class="col s12 m8 19">
-    <h6>Top Questions</h6>
+    <h4>Recent Questions</h4>
     <div class="divider"></div>
 
     <% @questions.each do |question| %>
       <div class="card">
         <div class="card-content black-text">
-          <%= link_to question.title.truncate(140, separator: ' '), question_path(question), class: "card-title black-text" %>
-          <p><%= question.body.truncate(240, separator: ' ') %></p>
+          <h4><%= link_to question.title.truncate(140, separator: ' '), question_path(question), class: "card-title black-text" %></h4>
+          <h5><%= question.body.truncate(240, separator: ' ') %></h5>
           <%= link_to "Upvote", up_vote_question_path(question), method: :post, remote: true, class: "waves-effect btn red lighten-5" %>
           <span class="badge"><%= question.popularity %></span>
           <%= link_to "Downvote", down_vote_question_path(question), method: :post, remote: true, class: "waves-effect btn red lighten-5" %>
