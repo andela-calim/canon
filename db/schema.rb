@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20150329152326) do
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "popularity", default: 0
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,4 +46,16 @@ ActiveRecord::Schema.define(version: 20150329152326) do
     t.datetime "oauth_expires_at"
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "question_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "votes", ["question_id"], name: "index_votes_on_question_id", using: :btree
+  add_index "votes", ["user_id"], name: "index_votes_on_user_id", using: :btree
+
+  add_foreign_key "votes", "questions"
+  add_foreign_key "votes", "users"
 end

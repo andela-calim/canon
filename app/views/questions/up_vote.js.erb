@@ -1,0 +1,5 @@
+<% if @vote.persisted? %>
+alert("Question upvoted!!!")
+<% else %>
+alert("<%= @vote.errors.full_messages.join(', ') %>")
+<% end  #TODO %>

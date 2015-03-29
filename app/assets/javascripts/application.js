@@ -20,13 +20,7 @@
 //= require underscore
 //= require_tree .
 $(document).ready(function() {
-    $(".show-more").click(function () {
-        if ($(".text").hasClass("show-more-height")) {
-            $(this).text("(Show Less)");
-        } else {
-            $(this).text("(Show More)");
-        }
-
-        $(".text").toggleClass("show-more-height");
-    });
+    // the "href" attribute of .modal-trigger must specify the modal ID that wants to be triggered
+    $('.modal-trigger').leanModal();
+      
 });
