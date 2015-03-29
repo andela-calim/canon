@@ -87,7 +87,11 @@ class QuestionsController < ApplicationController
   end
 
   def search
-    @question = Question.where("lower(title) LIKE ?", "%#{params[:query].downcase}%")
+    puts "===================="
+    puts "===================="
+    puts "===================="
+    puts "===================="
+    @result = Question.where("lower(title) LIKE ?", "%#{params[:query].downcase}%")
   end
 
   private
