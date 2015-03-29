@@ -1,3 +1,5 @@
+
+
 <nav>
   <div class="nav-wrapper">
     <%= link_to 'Canon', questions_path, class: 'brand-logo' %>
@@ -14,17 +16,7 @@
       </li>
       <% if current_user %>
         <li><%= link_to "Ask a question", '#modal1', class: 'modal-trigger' %></li>
-
-        <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
-      <% else %>
-
-        <li><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></li>
-
-      <% end %>
-    </ul>
-    <ul class="side-nav" id="mobile-demo">
-      <% if current_user %>
-        <li><%= link_to "Ask a question", new_question_path %></li>
+        
         <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
       <% else %>
 
@@ -40,12 +32,28 @@
         </form>
       </li>
     </ul>
+    <ul class="side-nav" id="mobile-demo">
+        <% if current_user %>
+        <li><%= link_to "Ask a question", new_question_path %></li>
+        <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+      <% else %>
+
+        <li><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></li>
+
+      <% end %>
+        <li>
+        <form>
+          <div class="input-field">
+            <input id="search" placeholder="Search" type="text" class="black-text text-darken-2" required>
+            <label for="search"><i class="mdi-action-search"></i></label>
+          </div>
+        </form>
+        </li>
+      </ul>
   </div>
 </nav>
-
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-  <div class="modal-content">
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
     <%= render 'questions/form' %>
   </div>
 </div>
