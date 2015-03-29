@@ -68,7 +68,10 @@ class QuestionsController < ApplicationController
   end
 
   def down_vote
-
+    @vote = current_user.votes.new(question: @question)
+    if @question.popularity > 0
+      @question.update_attributes(popularity: @question.popularity - 1) if @vote.save
+    end
   end
 
   def search
