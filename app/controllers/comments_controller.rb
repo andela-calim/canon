@@ -1,5 +1,10 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user
+
+  def index
+    @comments = Comment.where('id > ?', params[:after_id].to_i).order('created_at DESC')
+  end
+
   def new
     @comment = Comment.new
     @comments = Comment.order('created_at DESC')
