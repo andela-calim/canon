@@ -1,6 +1,7 @@
 <nav>
   <div class="nav-wrapper">
     <%= link_to 'Canon', questions_path, class: 'brand-logo' %>
+    <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li>
@@ -12,7 +13,8 @@
         </form>
       </li>
       <% if current_user %>
-        <li><%= link_to "Ask a question", new_question_path %></li>
+        <li><%= link_to "Ask a question", '#modal1', class: 'modal-trigger' %></li>
+
         <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
       <% else %>
 
@@ -20,35 +22,30 @@
 
       <% end %>
     </ul>
+    <ul class="side-nav" id="mobile-demo">
+      <% if current_user %>
+        <li><%= link_to "Ask a question", new_question_path %></li>
+        <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
+      <% else %>
+
+        <li><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></li>
+
+      <% end %>
+      <li>
+        <form>
+          <div class="input-field">
+            <input id="search" placeholder="Search" type="text" class="black-text text-darken-2" required>
+            <label for="search"><i class="mdi-action-search"></i></label>
+          </div>
+        </form>
+      </li>
+    </ul>
   </div>
 </nav>
 
-<!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Create New Question</h4>
-        <div class="row">
-          <form class="col s12">
-            <div class="row">
-              <div class="input-field col s12">
-                <input id="first_name" type="text" class="validate">
-                <label for="first_name">Title</label>
-              </div>
-            </div>
-            <div class="row">
-              <div class="input-field col s12">
-                <textarea id="textarea1" class="materialize-textarea"></textarea>
-                <label for="textarea1">Body</label>
-              </div>
-            </div>
-          </form>
-        </div>
-    </div>
-    <div class="modal-footer">
-      <a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Submit</a>
-    </div>
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <%= render 'questions/form' %>
   </div>
-  
+</div>
