@@ -29,8 +29,7 @@ class CommentsController < ApplicationController
 
   def create
     if current_user
-      @comment = current_user.comments.build(comment_params)
-      @comment.save
+      @comment = Comment.create(comment_params)
     end
   end
   private

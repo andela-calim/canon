@@ -1,8 +1,9 @@
 <li class="media comment">
   <div class="media-body">
-    <p class="media-heading"><%= link_to comment.user.name, target: '_blank' %> says
-      <small class="text-muted">[at <%= comment.timestamp %>]</small></p>
+    <h5 class="media-heading">From Anonymous</h5>
+
     <p><%= comment.body %></p>
+      <small class="text-muted">[at <%= comment.timestamp %>]</small>
   </div>
 </li>
 <li class="media comment" data-id="<%= comment.id %>">

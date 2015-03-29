@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   # get 'questions/new', to: 'questions#new', as: :question_new
 
-  resources :comments, only: [:new, :create, :index]
+  resources :comments, only: [:create, :index]
   resources :questions do
     member do
       post :up_vote, :down_vote
