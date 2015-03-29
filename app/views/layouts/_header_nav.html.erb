@@ -1,6 +1,6 @@
 
 
-<nav>
+<nav  class="indigo darken-1" id='nav'>
   <div class="nav-wrapper">
     <%= link_to 'Canon', questions_path, class: 'brand-logo', id: 'canon' %>
     <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
@@ -8,13 +8,9 @@
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li>
         <%= form_tag search_questions_path, class: "navbar-form navbar-left" do %>
-            <div class="input-field">
-              <%= text_field_tag :query, '', class: 'form-control', id: 'search', placeholder: 'Search Questions by Title' %>
+            <div class="input-field ">
+              <%= text_field_tag :query, '', class: 'form-control white-text', id: 'search', placeholder: 'Search Questions by Title' %>
               <label for="search"><i class="mdi-action-search"></i></label>
-            </div>
-
-            <div class="form-group">
-              <button type="submit" class="btn btn-success">Search</button>
             </div>
         <% end %>
       </li>
@@ -42,13 +38,9 @@
       <% end %>
       <li>
         <%= form_tag search_questions_path, class: "navbar-form navbar-left" do %>
-          <div class="input-field">
-            <%= text_field_tag :query, '', class: 'form-control', id: 'search', placeholder: 'Search Questions by Title' %>
+          <div class="input-field ">
+            <%= text_field_tag :query, '', class: 'form-control white-text', id: 'search', placeholder: 'Search Questions by Title' %>
             <label for="search"><i class="mdi-action-search"></i></label>
-          </div>
-
-          <div class="">
-            <button type="submit" class="">Search</button>
           </div>
         <% end %>
       </li>
@@ -57,6 +49,7 @@
 </nav>
   <!-- Modal Structure -->
   <div id="modal1" class="modal">
+    <h5>Ask a question</h5>
     <%= render 'questions/form' %>
   </div>
 </div>

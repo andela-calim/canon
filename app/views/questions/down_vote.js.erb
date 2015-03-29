@@ -1,6 +1,7 @@
 <% if @able %>
   <% if @vote.persisted? %>
-    alert("Question downvoted!!!")
+    alert("Question downvoted!!!");
+    $("#populariy").html("<%= escape_javascript(@question.popularity - 1) %>");
   <% else %>
     alert("<%= @vote.errors.full_messages.join(', ') %>")
   <% end  #TODO %>
