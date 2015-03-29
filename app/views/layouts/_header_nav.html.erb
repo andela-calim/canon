@@ -7,12 +7,15 @@
 
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li>
-        <form>
-          <div class="input-field">
-            <input id="search" type="text" required>
-            <label for="search"><i class="mdi-action-search"></i></label>
-          </div>
-        </form>
+        <%= form_tag search_questions_path, class: "navbar-form navbar-left" do %>
+            <div class="">
+              <%= text_field_tag :query, '', class: 'form-control', id: 'search', placeholder: 'Search Questions' %>
+            </div>
+
+            <div class="">
+              <button type="submit" class="">Search</button>
+            </div>
+        <% end %>
       </li>
       <% if current_user %>
         <li><%= link_to "Ask a question", '#modal1', class: 'modal-trigger' %></li>
