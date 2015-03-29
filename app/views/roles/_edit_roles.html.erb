@@ -6,7 +6,7 @@
       </div>
       <%= form_tag update_roles_path, method: :put do %>
 
-        <%= hidden_field_tag "users_ids[]", @users_ids %>
+        <%= hidden_field_tag "user[]", @user %>
 
         <% @roles.each do |role| %>
           <%= check_box_tag "role_names[]", role, role_checked?(role) %>

@@ -22,6 +22,9 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   resources :admin, only: :index
 
+  get 'roles/edit/:id', to: 'roles#edit_roles', as: :edit_roles
+  put 'roles/update', to: 'roles#update_roles', as: :update_roles
+
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'

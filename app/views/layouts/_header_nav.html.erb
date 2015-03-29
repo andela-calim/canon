@@ -19,12 +19,12 @@
       </li>
       <% if current_user %>
         <li><%= link_to "Ask a question", '#modal1', class: 'modal-trigger' %></li>
-        
+        <% if current_user.has_role? :admin %>
+          <li><%= link_to "Admin", admin_index_path %></li>
+        <% end %>
         <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
       <% else %>
-
         <li><%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %></li>
-
       <% end %>
       <li>
         <form>
@@ -38,6 +38,9 @@
     <ul class="side-nav" id="mobile-demo">
         <% if current_user %>
         <li><%= link_to "Ask a question", new_question_path %></li>
+        <% if current_user.has_role? :admin %>
+          <li><%= link_to "Admin", admin_index_path %></li>
+        <% end %>
         <li><%= link_to "Sign out", signout_path, id: "sign_out" %></li>
       <% else %>
 

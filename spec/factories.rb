@@ -1,15 +1,15 @@
-FactoryGirl.define do  factory :vote do
+FactoryGirl.define do
+  factory :vote do
     popularity 1
-user ""
-question ""
+    user ""
+    question ""
   end
   factory :comment do
     body "MyText"
-user nil
+    user nil
   end
 
   factory :questions do
-
     sequence(:title) { |n| "QuestionTitle#{n}" }
     sequence(:body) { |n| "QuestionBody#{n}" }
     user nil

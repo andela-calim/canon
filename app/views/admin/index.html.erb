@@ -8,8 +8,16 @@
   </tr>
   <% @users.each do |user| %>
     <tr>
-      <td><%= user.name %></td>
+      <td><%= link_to user.name, edit_roles_path(user), remote: true %></td>
       <td><%= user.email %></td>
+      <td>
+        <% u_roles = user.roles.order(:name) %>
+        <% usersroles = [] %>
+        <% u_roles.each do |rol| %>
+          <% usersroles.push(rol.name.capitalize) %>
+        <% end %>
+        <%= usersroles.join(', ') %>
+      <td>
     </tr>
   <% end %>
 </table>

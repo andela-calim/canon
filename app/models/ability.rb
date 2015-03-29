@@ -12,6 +12,10 @@ class Ability
     #   end
     user ||= User.new
 
+    if user.has_role? :admin
+      can :manage, Question
+    end
+
     if user.has_role? :director
       can :answer, User
     end
