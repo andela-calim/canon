@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20150329151012) do
   create_table "questions", force: :cascade do |t|
     t.text     "title"
     t.text     "body"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "popularity", default: 0
@@ -59,6 +60,13 @@ ActiveRecord::Schema.define(version: 20150329151012) do
     t.datetime "oauth_expires_at"
   end
 
+  create_table "users_roles", id: false, force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "role_id"
+  end
+
+  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
+
   create_table "votes", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "question_id"
@@ -71,13 +79,4 @@ ActiveRecord::Schema.define(version: 20150329151012) do
 
   add_foreign_key "votes", "questions"
   add_foreign_key "votes", "users"
-
-  create_table "users_roles", id: false, force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "role_id"
-  end
-
-  add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
-
-  add_foreign_key "comments", "users"
 end
