@@ -62,5 +62,7 @@ group :development, :test do
 
   # Factory
   gem 'factory_girl_rails'
+  #set environmental variables
+  gem 'dotenv-rails'
 end
 
