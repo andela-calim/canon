@@ -1,4 +1,8 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :comment do
+    body "MyText"
+user nil
+  end
+
   factory :questions do
 
     sequence(:title) { |n| "QuestionTitle#{n}" }
