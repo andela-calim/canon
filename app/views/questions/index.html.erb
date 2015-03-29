@@ -8,8 +8,9 @@
         <div class="card-content black-text">
           <%= link_to question.title.truncate(140, separator: ' '), question_path(question), class: "card-title black-text" %>
           <p><%= question.body.truncate(240, separator: ' ') %></p>
-          <%= link_to "Upvote | #{question.popularity}", up_vote_question_path(question), method: :post, remote: true, class: "waves-effect btn red lighten-5" %>
-          <%= link_to "Downvote | #{question.popularity}", down_vote_question_path(question), method: :post, remote: true, class: "waves-effect btn red lighten-5" %>
+          <%= link_to "Upvote", up_vote_question_path(question), method: :post, remote: true, class: "waves-effect btn red lighten-5" %>
+          <span class="badge"><%= question.popularity %></span>
+          <%= link_to "Downvote", down_vote_question_path(question), method: :post, remote: true, class: "waves-effect btn red lighten-5" %>
         </div>
       </div>
     <% end %>

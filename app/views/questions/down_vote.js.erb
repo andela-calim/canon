@@ -1,5 +1,9 @@
-<% if @vote.persisted? %>
-alert("Question downvoted!!!")
+<% if @able %>
+  <% if @vote.persisted? %>
+    alert("Question downvoted!!!")
+  <% else %>
+    alert("<%= @vote.errors.full_messages.join(', ') %>")
+  <% end  #TODO %>
 <% else %>
-alert("<%= @vote.errors.full_messages.join(', ') %>")
+  alert("You can only vote on a question once");
 <% end  #TODO %>
